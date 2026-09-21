@@ -1,0 +1,55 @@
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>MoonBet v4</title><style>
+body{margin:0;background:#0f212e;color:#fff;font-family:sans-serif}
+#top{height:50px;background:#0a1c28;display:flex;justify-content:space-between;padding:12px;font-weight:800;border-bottom:1px solid #1a3446}
+#tabs{display:flex;gap:6px;padding:8px;overflow:auto;background:#0a1c28}
+#tabs button{padding:9px 14px;border-radius:20px;border:1px solid #234358;background:#132f44;color:#fff;white-space:nowrap}
+#tabs button.active{background:#00e701;color:#000}
+.card{margin:12px;background:#132f44;padding:14px;border-radius:12px}
+input{width:100%;padding:12px;border-radius:8px;border:1px solid #2a4557;background:#0f212e;color:#fff;margin:6px 0;font-size:16px}
+.btn{width:100%;padding:13px;border-radius:8px;border:0;font-weight:900;background:#00e701}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:10px 0}
+.tile{aspect-ratio:1;background:#0f212e;border-radius:6px;display:flex;align-items:center;justify-content:center;border:1px solid #234358}
+.hidden{display:none}
+</style></head><body>
+<div id="top"><div>MoonBet v4 PHONE</div><div>₹<span id="bal">1000</span></div></div>
+<div id="tabs">
+<button class="active" onclick="show('dice',this)">🎲 Dice</button>
+<button onclick="show('mines',this)">💣 Mines</button>
+<button onclick="show('aviator',this)">✈️ Aviator</button>
+<button onclick="show('teen',this)">👑 TeenPatti</button>
+<button onclick="show('cricket',this)">🏏 Cricket</button>
+</div>
+<div id="dice" class="card">
+<h3>Dice</h3>
+<input id="dBet" value="10" type="number">
+<input id="dTarget" type="range" min="2" max="98" value="50" style="width:100%">
+<button class="btn" onclick="rollDice()">ROLL DICE</button>
+<div id="dRes" style="text
+<div id="aviator" class="card hidden">
+<h3>Aviator</h3>
+<div style="height:120px;background:#08151e;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:900;color:#00e701" id="aMult">1.00x</div>
+<input id="aBet" value="10">
+<button class="btn" id="aBtn" onclick="fly()">FLY</button>
+</div>
+<div id="teen" class="card hidden">
+<h3>Teen Patti</h3>
+<div id="tRow" style="display:flex;gap:8px;justify-content:center;margin:10px 0">
+<div style="width:50px;height:70px;background:#fff;color:#000;border-radius:6px;display:flex;align-items:center;justify-content:center">?</div>
+<div style="width:50px;height:70px;background:#fff;color:#000;border-radius:
+<script>
+let bal=1000;
+function upd(){document.getElementById('bal').innerText=bal.toFixed(0)}
+function show(id,btn){
+document.querySelectorAll('.card').forEach(c=>c.classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+document.querySelectorAll('#tabs button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+}
+function rollDice(){
+let bet=+document.getElementById('dBet').value;
+let roll=Math.random()*100;
+let win=roll<50;
+if(win)bal+=bet;else bal-=bet;
+upd();
+let r=document.getElementById('dRes');
+r.innerText=(win?'WIN ':'LOSE ')+roll.toFixed(
