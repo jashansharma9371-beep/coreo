@@ -53,3 +53,69 @@ if(win)bal+=bet;else bal-=bet;
 upd();
 let r=document.getElementById('dRes');
 r.innerText=(win?'WIN ':'LOSE ')+roll.toFixed(
+<script>
+let bal=1000;
+function upd(){document.getElementById('bal').innerText=bal.toFixed(0)}
+function show(id,btn){
+document.querySelectorAll('.card').forEach(c=>c.classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+document.querySelectorAll('#tabs button').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active')
+}
+function rollDice(){
+let bet=+dBet.value;
+let roll=Math.random()*100;
+let win=roll<50;
+if(win)bal+=bet;else bal-=bet;
+upd();
+dRes.innerText=(win?'WIN ':'LOSE ')+roll.toFixed(2);
+dRes.style.color=win?'#00e701':'#ff5555'
+}
+function startMines(){
+let g=document.getElementById('mGrid');g.innerHTML='';
+for(let i=0;i<25;i++){
+let d=document.createElement('div');d.className='tile';d.innerText='?';
+d.onclick=()=>{
+if(Math.random()<0.2){d.innerText='💣';d.style.background='#ff4444';bal-=10;upd()}
+else{d.innerText='💎';d.style.background='#1a4a2e';bal+=5;upd()}
+};
+g.appendChild(d)
+}
+}
+let am=1,af=false,ainter;
+function fly(){
+let btn=document.getElementById('aBtn');
+if(!af){
+af=true;am=1;let bet=+aBet.value;bal-=bet;upd();btn.innerText='CASHOUT';
+ainter=setInterval(()=>{
+am+=0.05;
+document.getElementById('aMult').innerText=am.toFixed(2)+'x';
+if(am>2+Math.random()*5){
+clearInterval(ainter);af=false;btn.innerText='FLY';
+document.getElementById('aMult').innerText='CRASH '+am.toFixed(2)+'x';
+setTimeout(()=>{document.getElementById('aMult').innerText='1.00x'},1200)
+}
+},100)
+}else{
+clearInterval(ainter);let bet=+aBet.value;bal+=bet*am;upd();af=false;btn.innerText='FLY';
+}
+}
+function dealT(){
+let bet=+tBet.value;
+let cards=['A♠','K♥','Q♦'];
+document.getElementById('tRow').innerHTML=cards.map(c=>'<div style="width:50px;height:70px;background:#fff;color:#000;border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800">'+c+'</div>').join('');
+let win=Math.random()>0.5;
+if(win){bal+=bet;tRes.innerText='WIN +'+bet}else{bal-=bet;tRes.innerText='LOSE'};
+upd()
+}
+function hit(){
+let bet=+cBet.value;
+let runs=[0,1,2,4,6,'W'][Math.floor(Math.random()*6)];
+document.getElementById('cBall').innerText=runs;
+if(runs==6){bal+=bet*4;cRes.innerText='SIX! WIN'}
+else if(runs=='W'){bal-=bet;cRes.innerText='OUT!'}
+else{bal+=bet;cRes.innerText=runs+' Runs'};
+upd()
+}
+upd();
+</script></body></html>
