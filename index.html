@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MoonBet - Login</title>
+<style>
+body{margin:0;background:#0f212e;color:#fff;font-family:Inter,sans-serif;padding:12px}
+#top{display:flex;justify-content:space-between;background:#0a1c28;padding:12px;border-radius:8px;font-weight:800}
+#auth{max-width:360px;margin:60px auto;background:#132f44;padding:20px;border-radius:16px;text-align:center}
+#auth h2{margin:0 0 14px}
+#auth input{width:100%;padding:12px;margin:8px 0;background:#0f212e;border:1px solid #2a4557;color:#fff;border-radius:8px;box-sizing:border-box}
+.btn{width:100%;background:#00e701;color:#000;font-weight:900;padding:12px;border-radius:8px;border:0;margin-top:10px;cursor:pointer}
+#game{display:none}
+.tabs{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+.tabs button{padding:8px 14px;border-radius:20px;border:1px solid #234358;background:#132f44;color:#fff}
+.tabs button.active{background:#00e701;color:#000}
+.card{background:#132f44;padding:14px;border-radius:12px;margin-top:10px}
+.card input{width:100%;padding:10px;background:#0f212e;border:1px solid #2a4557;color:#fff;border-radius:8px;margin:6px 0;box-sizing:border-box}
+.tile{aspect-ratio:1;background:#0f212e;border:1px solid #234358;display:flex;align-items:center;justify-content:center;border-radius:6px;font-size:20px}
+</style>
+</head>
+<body>
+
+<div id="auth">
+<h2>MoonBet</h2>
+<p style="color:#8a9dad;font-size:13px">Signup / Login karo fir khelo</p>
+<input id="u" placeholder="Username">
+<input id="p" type="password" placeholder="Password">
+<button class="btn" onclick="signup()">SIGNUP</button>
+<button class="btn" style="background:#fff" onclick="login()">LOGIN</button>
+<div id="msg" style="margin-top:10px;font-size:13px;color:#ff6666"></div>
+</div>
+
+<div id="game">
+<div id="top"><div>MoonBet</div><div><span id="user"></span> | Rs <span id="b">1000</span> <button onclick="logout()" style="margin-left:8px;padding:4px 8px;border-radius:10px;border:0;background:#ff4444;color:#fff">Out</button></div></div>
+<div class="tabs">
+<button class="active" onclick="s('dice',this)">Dice</button>
+<button onclick="s('mines',this)">Mines</button>
+<button onclick="s('crash',this)">Aviator</button>
+<button onclick="s('tp',this)">TeenPatti</button>
+<button onclick="s('cric',this)">Cricket</button>
+</div>
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>MoonBet</title><style>body{margin:0;background:#0f212e;color:#fff;font-family:sans-serif;padding:12px}#top{display:flex;justify-content:space-between;background:#0a1c28;padding:12px;border-radius:8px;font-weight:800}#auth{max-width:360px;margin:50px auto;background:#132f44;padding:20px;border-radius:16px;text-align:center}#auth input{width:100%;padding:12px;margin:8px 0;background:#0f212e;border:1px solid #2a4557;color:#fff;border-radius:8px;box-sizing:border-box}.btn{width:100%;background:#00e701;color:#000;font-weight:900;padding:12px;border-radius:8px;border:0;margin-top:10px;cursor:pointer}#game{display:none}.tabs{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}.tabs button{padding:8px 14px;border-radius:20px;border:1px solid #234358;background:#132f44;color:#fff}.tabs button.active{background:#00e701;color:#000}.card{background:#132f44;padding:14px;border-radius:12px;margin-top:10px}.tile{aspect-ratio:1;background:#0f212e;border:1px solid #234358;display:flex;align-items:center;justify-content:center;border-radius:6px}</style></head><body><div id="auth"><h2>MoonBet</h2><input id="u" placeholder="Username"><input id="p" type="password" placeholder="Password"><button class="btn" onclick="signup()">SIGNUP</button><button class="btn" style="background:#fff" onclick="login()">LOGIN</button><div id="msg" style="margin-top:10px;color:#ff6666"></div></div><div id="game"><div id="top"><div>MoonBet</div><div><span id="user"></span> | Rs <span id="b">1000</span> <button onclick="logout()" style="margin-left:8px;padding:3px 8px;border:0;background:#ff4444;color:#fff;border-radius:8px">X</button></div></div><div class="tabs"><button class="active" onclick="s('dice',this)">Dice</button><button onclick
+<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>MoonBet</title><style>body{margin:0;background:#0f212e;color:#fff;font-family:sans-serif;padding:12px}#top{display:flex;justify-content:space-between;background:#0a1c28;padding:12px;border-radius:8px;font-weight:800}#auth{max-width:360px;margin:50px auto;background:#132f44;padding:20px;border-radius:16px;text-align:center}#auth input{width:100%;padding:12px;margin:8px 0;background:#0f212e;border:1px solid #2a4557;color:#fff;border-radius:8px}#btn{width:100%;background:#00e701;color:#000;font-weight:900;padding:12px;border-radius:8px;border:0;margin-top:10px}#game{display:none}.tabs{display:flex;gap:6px;margin-top:12px}.tabs button{padding:8px 14px;border-radius:20px;border:1px solid #234358;background:#132f44;color:#fff}.card{background:#132f44;padding:14px;border-radius:12px;margin-top:10px}.tile{aspect-ratio:1;background:#0f212e;border:1px solid #234358;display:flex;align-items:center;justify-content:center;border-radius:6px}</style></head><body>
+<div id="auth"><h2>MoonBet</h2><input id="u" placeholder="Username"><input id="p" type="password" placeholder="Password"><button id="btn" onclick="signup()">SIGNUP</button><button id="btn" style="background:#fff" onclick="login()">LOGIN</button><div id="msg"></div></div>
+<div id="game"><div id="top"><div>MoonBet</div><div><span id="user"></span> | Rs <span id="b">1000</span> <button onclick="logout()">X</button></div></div>
+<div class="tabs"><button onclick="s('dice',this)">Dice</button><button onclick="s('mines',this)">Mines</button><button onclick="s('crash',this)">Aviator</button><button onclick="s('tp',this)">TeenPatti</button><button onclick="s('cric',this)">Cricket</button></div>
+<div id="dice" class="card"><h3>Dice</h3><button onclick="roll()" style="width:100%;background:#00e701;padding:12px;border:0;border-radius:8px;font-weight:800">ROLL</button><div id="dr" style="text-align:center;margin-top:8px"></div></div>
+<div id="mines" class="card" style="display:none"><h3>Mines</h3><div id="mg" style="display:grid;grid-template-columns:repeat(5,1fr);gap:5px"></div><button onclick="startM()" style="width:100%;background:#00e701;padding:12px;border:0;border-radius:8px;margin-top:10px;font-weight:800">START</button></div>
+<div id="crash" class="card" style="display:none"><h3>Aviator</h3><div id="cm" style="height:70px;background:#08151e;display:flex;align-items:center;justify-content:center;font-size:30px;color:#00e701">1.00x</div><button id="flyBtn" onclick="fly()" style="width:100%;background:#00e701;padding:12px;border:0;border-radius:8px;margin-top:10px;font-weight:800">FLY</button></div>
+<div id="tp" class="card" style="display:none"><h3>TeenPatti</h3><div id="tr" style="text-align:center"></div><button onclick="deal()" style="width:100%;background:#00e701;padding:12px;border:0;border-radius:8px;margin-top:10px;font-weight:800">DEAL</button><div id="trMsg" style="text-align:center"></div></div>
+<div id="cric" class="card" style="display:none"><h3>Cricket</h3><div id="cb" style="font-size:40px;text-align:center">🏏</div><button onclick="hit()" style="width:100%;background:#00e701;padding:12px;border:0;border-radius:8px;margin-top:10px;font-weight:800">HIT SIX</button><div id="cr" style="text-align:center"></div></div></div>
+<script>
+let cur=null,bal=1000;let users=JSON.parse(localStorage.getItem('mb_users')||'{}');let af=false,am=1,ainter;
+function check(){let s=localStorage.getItem('mb_cur');if(s&&users[s]){cur=s;bal=users[s].bal;showGame()}}check();
+function signup(){let u=document.getElementById('u').value.trim();let p=document.getElementById('p').value.trim();if(!u||!p)return;if(users[u])return;users[u]={pass:p,bal:1000};localStorage.setItem('mb_users',JSON.stringify(users));alert('Signup Done, Login karo')}
+function login(){let u=document.getElementById('u').value.trim();let p=document.getElementById('p').value.trim();if(!users[u]||users[u].pass!==p){alert('Galat');return}cur=u;bal=users[u].bal;localStorage.setItem('mb_cur',cur);showGame()}
+function showGame(){auth.style.display='none';game.style.display='block';user.innerText=cur;b.innerText=bal}
+function logout(){localStorage.removeItem('mb_cur');location.reload()}
+function save(){users[cur].bal=bal;localStorage.setItem('mb_users',JSON.stringify(users));b.innerText=bal}
+function s(id,el){document.querySelectorAll('.card').forEach(c=>c.style.display='none');document.getElementById(id).style.display='block'}
+function roll(){let r=Math.random()*100;if(r<50)bal+=10;else bal-=10;save();dr.innerText=(r<50?'WIN ':'LOSE ')+r.toFixed(1)}
+function startM(){mg.innerHTML='';for(let i=0;i<25;i++){let d=document.createElement('div');d.style.cssText='aspect-ratio:1;background:#0f212e;border:1px solid #234358;display:flex;align-items:center;justify-content:center;border-radius:6px';d.innerText='?';d.onclick=function(){if(this.innerText!='?')return;if(Math.random()<0.25){this.innerText='X';this.style.background='#ff4444';bal-=10}else{this.innerText='O';this.style.background='#1a4a2e';bal+=15}save()};mg.appendChild(d)}}
+function fly(){if(!af){af=true;am=1;bal-=10;save();flyBtn.innerText='CASHOUT';ainter=setInterval(function(){am+=0.05;cm.innerText=am.toFixed(2)+'x';if(am>4){clearInterval(ainter);af=false;flyBtn.innerText='FLY';cm.innerText='CRASH'}},120)}else{clearInterval(ainter);let w=Math.floor(10*am);bal+=w;save();af=false;flyBtn.innerText='FLY';cm.innerText='WIN '+w}}
+function deal(){bal-=20;save();tr.innerHTML='A K Q';if(Math.random()>0.5){bal+=40;trMsg.innerText='WIN'}else{trMsg.innerText='LOSE'}save()}
+function hit(){let a=['0','1','2','4','6','W'];let o=a[Math.floor(Math.random()*6)];cb.innerText=o;if(o=='6'){bal+=40;cr.innerText='SIX!'}else if(o=='W'){bal-=10;cr.innerText='OUT!'}else{bal+=parseInt(o)||0;cr.innerText=o+' Runs'}save()}
+</script></body></html>
